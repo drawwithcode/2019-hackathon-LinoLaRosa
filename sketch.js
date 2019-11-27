@@ -19,15 +19,25 @@ function setup() {
     createCanvas(windowWidth, windowHeight)
 
     button = createButton("PLAY");
-    button.position(windowWidth / 2 - 50, windowHeight - 100);
+    button.position(windowWidth / 2 - 50, windowHeight - 150);
     button.size(100, 50);
     button.mousePressed(suona);
+    button.style('background-color', "black");
+    button.style("color", "#73f9c4");
+    button.style("border-color", "#73f9c4");
+
+    button2 = createButton("Click here if you don't know what I'm talking about");
+    button2.position(windowWidth / 2 - 100, windowHeight - 80);
+    button2.size(200, 50);
+    button2.mousePressed(openVideo);
+    button2.style('background-color', "#ff88a6");
+    button2.style("color", "#73f9c4");
+    button2.style("border-color", "#73f9c4");
 
     analyzer = new p5.Amplitude();
     analyzer.setInput(song);
 
     fft = new p5.FFT();
-
 
 }
 
@@ -55,9 +65,15 @@ function draw() {
     var low = fft.getEnergy('bass');
     var mid = fft.getEnergy('mid');
 
-    image(background, 0, 0, windowWidth, windowHeight);
-    image(bruno, windowWidth/10*2.3, windowHeight/10*2, mid*1.8, mid*2);
-    image(tg1, windowWidth/10*6.5, windowHeight/10*3.6, low*2.5, low*1.5);
+    imageMode(CENTER);
+    image(background, windowWidth / 2, windowHeight / 2, windowWidth, windowHeight);
+    image(bruno, windowWidth / 10 * 3, windowHeight / 10 * 3.3, mid * 1.8, mid * 2);
+    image(tg1, windowWidth / 10 * 8, windowHeight / 10 * 5.6, low * 2.5, low * 1.5);
 
+}
+
+function openVideo() {
+
+    window.open("https://www.youtube.com/watch?v=bAgmGZ9iQ2Y");
 
 }
