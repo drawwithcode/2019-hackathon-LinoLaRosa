@@ -1,7 +1,3 @@
-var song;
-var button;
-
-
 function preload() {
 
     song = loadSound("./assets/TG1_new.mp3");
@@ -36,9 +32,6 @@ function setup() {
     button2.style('background-color', "#ff88a6");
     button2.style("color", "#73f9c4");
     button2.style("border-color", "#73f9c4");
-
-    analyzer = new p5.Amplitude();
-    analyzer.setInput(song);
 
     fft = new p5.FFT();
 
